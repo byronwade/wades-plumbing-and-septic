@@ -25,6 +25,10 @@ function wades_plumbing_septic_register_block_pattern_categories() {
 		'wades-cta',
 		array( 'label' => esc_html__( 'Wade\'s CTAs', 'wades-plumbing-septic' ) )
 	);
+	register_block_pattern_category(
+		'wades-headers',
+		array( 'label' => esc_html__( 'Wade\'s Headers', 'wades-plumbing-septic' ) )
+	);
 }
 add_action( 'init', 'wades_plumbing_septic_register_block_pattern_categories', 9 );
 

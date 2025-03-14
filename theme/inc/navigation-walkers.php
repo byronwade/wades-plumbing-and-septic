@@ -33,6 +33,8 @@ class Wade_Nav_Walker extends Walker_Nav_Menu {
 			$item_class = 'inline-flex items-center gap-x-1 hover:underline';
 		}
 		
+		// Create a container for each menu item for proper spacing
+		$output .= '<div class="menu-item">';
 		$output .= '<a class="' . esc_attr( $item_class ) . '" href="' . esc_url( $item->url ) . '">';
 		$output .= esc_html( $item->title );
 		
@@ -56,8 +58,8 @@ class Wade_Nav_Walker extends Walker_Nav_Menu {
 	 * @param array   $args   An object of wp_nav_menu() arguments.
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
-		// No closing </li> since we're not using a list structure
-		$output .= ' ';
+		// Close the menu item container
+		$output .= '</div>';
 	}
 	
 	/**

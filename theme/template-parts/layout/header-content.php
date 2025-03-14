@@ -57,20 +57,22 @@ if ($enable_state_detection && $mo_phone_number && ($user_state === 'MO' || ($de
 			
 			<!-- Desktop navigation -->
 			<div class="hidden md:flex space-x-8 items-center font-bold">
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'primary',
-						'menu_class'     => 'hidden md:flex space-x-8 items-center font-bold',
-						'container'      => false,
-						'fallback_cb'    => function() {
-							echo '<a class="hover:underline" href="' . esc_url( home_url( '/' ) ) . '">Home</a>';
-						},
-						'items_wrap'     => '%3$s', 
-						'walker'         => new Wade_Nav_Walker(),
-					)
-				);
-				?>				
+				<div class="flex space-x-8 items-center">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'menu_class'     => 'flex space-x-8 items-center font-bold',
+							'container'      => false,
+							'fallback_cb'    => function() {
+								echo '<a class="hover:underline" href="' . esc_url( home_url( '/' ) ) . '">Home</a>';
+							},
+							'items_wrap'     => '%3$s', 
+							'walker'         => new Wade_Nav_Walker(),
+						)
+					);
+					?>
+				</div>				
 				<a class="inline-flex justify-center items-center rounded font-bold px-3.5 py-2.5 bg-brand text-black hover:bg-brand-600" href="tel:+1<?php echo esc_attr($phone_cleaned); ?>">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
 						<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
@@ -189,6 +191,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Set logo height CSS custom properties
 	document.documentElement.style.setProperty('--logo-height', '48px');
 	document.documentElement.style.setProperty('--logo-height-mobile', '38.4px');
+	
+	// Make sure menu items are properly spaced
+	const menuItems = document.querySelectorAll('.menu-item');
+	if (menuItems.length > 0) {
+		menuItems.forEach(function(item, index) {
+			if (index === menuItems.length - 1) {
+				item.classList.add('last-menu-item');
+			}
+		});
+	}
 	
 	// Phone region selector functionality
 	const regionButton = document.getElementById('phone-region-button');

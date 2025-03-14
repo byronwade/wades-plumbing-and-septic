@@ -91,7 +91,7 @@ if ( ! function_exists( 'wades_plumbing_septic_setup' ) ) :
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus(
 			array(
-				'menu-1' => __( 'Primary', 'wades-plumbing-septic' ),
+				'primary' => __( 'Primary', 'wades-plumbing-septic' ),
 				'menu-2' => __( 'Footer Menu', 'wades-plumbing-septic' ),
 			)
 		);
