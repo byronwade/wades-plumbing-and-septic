@@ -5,10 +5,10 @@
 # Ignore generated JavaScript files:
 *.min.js
 
-# Ignore generated CSS files:
-style.css
-style-editor.css
-style-editor-extra.css
+# Previously generated CSS files - now tracked as static assets (no build pipeline)
+# style.css
+# style-editor.css
+# style-editor-extra.css
 
 # Ignore the generated zip file:
 wades-plumbing-septic.zip
